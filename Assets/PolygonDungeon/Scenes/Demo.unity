@@ -24472,15 +24472,15 @@ MonoBehaviour:
     Lighting, passages,
     and sensing systems are functioning normally.
 
-    Everything is proceeding
-    as planned.
+    Everything is proceeding as
+    planned.
 
-    
+
 
     March 19
 
-    A gemstone was discovered within the lower
-    rock wall.
+    A gemstone was discovered within the lower rock
+    wall.
 
     Energy output is stable and suitable as a long-term power source.
 
@@ -42209,6 +42209,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7fba1687af691ae4ebd49462bcebad0e, type: 3}
+--- !u!1 &1361794301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361794302}
+  m_Layer: 0
+  m_Name: DoorCameraView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361794302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361794301}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.033716384, y: 0.9653234, z: -0.15982695, w: 0.20364028}
+  m_LocalPosition: {x: -0.8750931, y: 1.6769779, z: 0.303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 616286095}
+  m_LocalEulerAnglesHint: {x: 17.148, y: 154.993, z: -7.831}
 --- !u!1 &1363736226 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 195864, guid: 23009f7f4b01d0c4297c7706abc8ca8e, type: 3}
@@ -44707,6 +44738,76 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7b6fc4d4a2910f84e8487af00020cbc4, type: 3}
+--- !u!1 &1427269179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427269180}
+  - component: {fileID: 1427269182}
+  - component: {fileID: 1427269181}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1427269180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427269179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.469, z: 0.635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 616286095}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1427269181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427269179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2ffc12764205438fe3bc316c24ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFocusTrigger
+  targetCameraPos: {fileID: 1361794302}
+  transitionSpeed: 1.5
+  waitTime: 3
+  triggerSound: {fileID: 8300000, guid: 1b8e7a5a93a22a04c90e2549fff9e34c, type: 3}
+--- !u!65 &1427269182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427269179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5340301, y: 1, z: 0.64095145}
+  m_Center: {x: -0.7225391, y: 0, z: -0.17952427}
 --- !u!1001 &1427653765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71063,7 +71164,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 488036, guid: 1bf3dbbe9f709c54cac0e2d71b64c139, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1361794302}
+    - targetCorrespondingSourceObject: {fileID: 488036, guid: 1bf3dbbe9f709c54cac0e2d71b64c139, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1427269180}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 111754, guid: 1bf3dbbe9f709c54cac0e2d71b64c139, type: 3}
       insertIndex: -1
