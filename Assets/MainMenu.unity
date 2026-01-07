@@ -723,6 +723,7 @@ GameObject:
   - component: {fileID: 1130710308}
   - component: {fileID: 1130710307}
   - component: {fileID: 1130710306}
+  - component: {fileID: 1130710309}
   m_Layer: 5
   m_Name: Start_MainMenu
   m_TagString: Untagged
@@ -844,6 +845,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130710304}
   m_CullTransparentMesh: 1
+--- !u!114 &1130710309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130710304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a58e25d4373e145a5acdd06cb23953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
 --- !u!1 &1317242842
 GameObject:
   m_ObjectHideFlags: 0
