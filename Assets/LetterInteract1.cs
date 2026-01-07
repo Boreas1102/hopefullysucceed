@@ -6,9 +6,9 @@ using System.Collections;
 public class LetterInteract1 : MonoBehaviour
 {
     [Header("UI 引用")]
-    public GameObject uiPrompt;           // 提示按E的UI
-    public CanvasGroup letterCanvasGroup;  // 控制面板透明度
-    public RectTransform letterRect;      // 控制面板位置
+    public GameObject uiPrompt;           
+    public CanvasGroup letterCanvasGroup;  
+    public RectTransform letterRect;     
 
     [Header("动画设置")]
     public float animationDuration = 0.5f;
@@ -22,22 +22,20 @@ public class LetterInteract1 : MonoBehaviour
     private bool isPlayerInRange = false;
     private bool isReading = false;
     private Vector2 originalPosition;
-    private Outline outline; // 内部引用描边组件
+    private Outline outline;
 
     void Awake()
     {
-        // 自动初始化描边组件
         outline = GetComponent<Outline>();
         if (outline == null)
         {
             outline = gameObject.AddComponent<Outline>();
         }
         
-        // 设置描边初始参数
         outline.OutlineMode = Outline.Mode.OutlineAll;
         outline.OutlineColor = outlineColor;
         outline.OutlineWidth = outlineWidth;
-        outline.enabled = false; // 初始状态关闭
+        outline.enabled = false; 
     }
 
     void Start()
@@ -71,7 +69,6 @@ public class LetterInteract1 : MonoBehaviour
         isReading = true;
         if(uiPrompt != null) uiPrompt.SetActive(false);
         
-        // 打开信纸时关闭描边，避免UI挡住时物体还在发光
         if (outline != null) outline.enabled = false;
 
         letterCanvasGroup.gameObject.SetActive(true);
@@ -84,7 +81,6 @@ public class LetterInteract1 : MonoBehaviour
         Debug.Log("【系统】关闭信纸界面");
         isReading = false;
         
-        // 关闭信纸时，如果玩家还在范围内，重新开启描边
         if (isPlayerInRange && outline != null) outline.enabled = true;
 
         StopAllCoroutines();
@@ -120,7 +116,6 @@ public class LetterInteract1 : MonoBehaviour
         letterCanvasGroup.gameObject.SetActive(false);
     }
 
-    // --- 触发检测 ---
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -128,7 +123,6 @@ public class LetterInteract1 : MonoBehaviour
             Debug.Log(">>> [检测成功] 玩家进入了信纸的检测范围！");
             isPlayerInRange = true;
             
-            // 显示提示和开启描边
             if (uiPrompt != null && !isReading) uiPrompt.SetActive(true);
             if (outline != null && !isReading) outline.enabled = true;
         }
@@ -141,7 +135,6 @@ public class LetterInteract1 : MonoBehaviour
             Debug.Log("<<< [检测成功] 玩家离开了信纸范围。");
             isPlayerInRange = false;
             
-            // 隐藏提示和关闭描边
             if (uiPrompt != null) uiPrompt.SetActive(false);
             if (outline != null) outline.enabled = false;
             

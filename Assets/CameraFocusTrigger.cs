@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraFocusTrigger : MonoBehaviour
 {
     [Header("镜头设置")]
-    public Transform targetCameraPos;    // 镜头观察点
+    public Transform targetCameraPos;    
     public float transitionSpeed = 1.5f; 
     public float waitTime = 3.0f;        
 
@@ -14,14 +14,12 @@ public class CameraFocusTrigger : MonoBehaviour
     private Camera mainCamera;
     private bool isTriggered = false;
 
-    // 如果你使用的是 Starter Assets，通常会有一个 CinemachineBrain
     private MonoBehaviour cmBrain; 
 
     void Start()
     {
         mainCamera = Camera.main;
         
-        // 尝试自动获取 Cinemachine 控制脚本（Starter Assets 默认使用它）
         if (mainCamera != null)
         {
             cmBrain = mainCamera.GetComponent("CinemachineBrain") as MonoBehaviour;
@@ -44,25 +42,19 @@ public class CameraFocusTrigger : MonoBehaviour
     {
         isTriggered = true;
 
-        // 1. 播放音效
         if (triggerSound != null) AudioSource.PlayClipAtPoint(triggerSound, transform.position);
 
-        // 2. 关键：禁用相机控制系统，防止它把相机“拉回去”
         if (cmBrain != null) cmBrain.enabled = false;
 
         Vector3 originalPos = mainCamera.transform.position;
         Quaternion originalRot = mainCamera.transform.rotation;
 
-        // 3. 移向观察点
         yield return StartCoroutine(MoveCamera(targetCameraPos.position, targetCameraPos.rotation));
 
-        // 4. 停留
         yield return new WaitForSeconds(waitTime);
 
-        // 5. 返回原位
         yield return StartCoroutine(MoveCamera(originalPos, originalRot));
 
-        // 6. 恢复相机控制系统
         if (cmBrain != null) cmBrain.enabled = true;
 
         isTriggered = false;
