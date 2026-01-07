@@ -1,4 +1,5 @@
 Interactive Gameplay Systems for Unity (URP)
+
 This repository contains a collection of decoupled, event-driven interaction systems developed for Unity. The focus was on creating a seamless blend of visual feedback, spatial audio, and cinematic camera transitions while maintaining a clean project architecture.
 
 Core Technical Implementations
